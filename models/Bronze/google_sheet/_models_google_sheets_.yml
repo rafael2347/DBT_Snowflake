@@ -1,0 +1,28 @@
+version: 2
+
+models:
+
+  - name: src_budget
+    description: "Presupuesto por producto y mes"
+    columns:
+      - name: _row
+        description: "Identificador de fila generado por Fivetran"
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: "Identificador del producto"
+        tests:
+          - not_null
+      - name: quantity
+        description: "Cantidad presupuestada"
+        tests:
+          - not_null
+      - name: month
+        description: "Mes del presupuesto"
+        tests:
+          - not_null
+      - name: date_load
+        description: "Fecha de carga de Fivetran"
+        tests:
+          - not_null
