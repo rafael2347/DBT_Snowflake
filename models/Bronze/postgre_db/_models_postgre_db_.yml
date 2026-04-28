@@ -1,0 +1,132 @@
+version: 2
+
+models:
+
+  - name: src_address
+    description: "Direcciones de los usuarios"
+    columns:
+      - name: ADDRESS_ID
+        description: "Identificador único de la dirección"
+        tests:
+          - not_null
+          - unique
+      - name: ZIPCODE
+        tests:
+          - not_null
+      - name: COUNTRY
+        tests:
+          - not_null
+      - name: ADDRESS
+      - name: STATE
+      - name: _FIVETRAN_DELETED
+      - name: date_load
+        tests:
+          - not_null
+
+  - name: src_order_items
+    description: "Items de cada pedido"
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+      - name: QUANTITY
+        tests:
+          - not_null
+      - name: _FIVETRAN_DELETED
+      - name: date_load
+        tests:
+          - not_null
+
+  - name: src_orders
+    description: "Pedidos realizados"
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+          - unique
+      - name: SHIPPING_SERVICE
+      - name: SHIPPING_COST
+      - name: ADDRESS_ID
+        tests:
+          - not_null
+      - name: CREATED_AT
+        tests:
+          - not_null
+      - name: PROMO_ID
+      - name: ESTIMATED_DELIVERY_AT
+      - name: ORDER_COST
+      - name: USER_ID
+        tests:
+          - not_null
+      - name: ORDER_TOTAL
+      - name: DELIVERED_AT
+      - name: TRACKING_ID
+      - name: STATUS
+      - name: _FIVETRAN_DELETED
+      - name: date_load
+        tests:
+          - not_null
+
+  - name: src_products
+    description: "Catálogo de productos"
+    columns:
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+          - unique
+      - name: PRICE
+        tests:
+          - not_null
+      - name: NAME
+        tests:
+          - not_null
+      - name: INVENTORY
+      - name: _FIVETRAN_DELETED
+      - name: date_load
+        tests:
+          - not_null
+
+  - name: src_promos
+    description: "Promociones disponibles"
+    columns:
+      - name: PROMO_ID
+        tests:
+          - not_null
+          - unique
+      - name: DISCOUNT
+      - name: STATUS
+      - name: INVENTORY
+      - name: _FIVETRAN_DELETED
+      - name: date_load
+        tests:
+          - not_null
+
+  - name: src_user
+    description: "Usuarios de la plataforma"
+    columns:
+      - name: USER_ID
+        tests:
+          - not_null
+          - unique
+      - name: UPDATED_AT
+      - name: ADDRESS_ID
+      - name: LAST_NAME
+      - name: CREATED_AT
+        tests:
+          - not_null
+      - name: PHONE_NUMBER
+      - name: TOTAL_ORDERS
+      - name: FIRST_NAME
+        tests:
+          - not_null
+      - name: EMAIL
+        tests:
+          - not_null
+          - unique
+      - name: _FIVETRAN_DELETED
+      - name: date_load
+        tests:
+          - not_null
