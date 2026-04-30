@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: sql_server_dbo
+    database: DB54_BRONZE_DB
+    schema: GOOGLE_SHEETS
+    tables:
+      - name: BUDGET
+        columns:
+          - name: _ROW
+            tests:
+              - unique
+              - not_null
