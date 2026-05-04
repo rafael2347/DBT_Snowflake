@@ -1,7 +1,7 @@
 version: 2
 
 models:
-
+s
   - name: src_budget
     description: "Presupuesto por producto y mes"
     columns:
